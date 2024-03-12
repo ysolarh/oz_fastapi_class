@@ -13,7 +13,7 @@ class User(Base):
     email = Column(String, unique=True)
     hashed_password = Column(String)
 
-    # items = relationship('Item', back_populates='owner')
+    items = relationship('Item', back_populates='owner')
 
     # CREATE TABLE users(
     #   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -30,6 +30,6 @@ class Item(Base):
     description = Column(String)
     owner_id = Column(Integer, ForeignKey('users.id'))
 
-    # owner = relationship('User', back_populates='items')
+    owner = relationship('User', back_populates='items')
 
 # User와 Item의 관계

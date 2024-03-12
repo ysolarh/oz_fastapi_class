@@ -3,10 +3,25 @@ from typing import List
 from pydantic import BaseModel
 
 
-class Item(BaseModel):
-    id: int
+# schemas/item.py
+# schemas/user.py
+
+class ItemBase(BaseModel):
     title: str
     description: str
+
+
+class ItemCreate(ItemBase):
+    pass
+
+
+class ItemUpdate(ItemBase):
+    title: str | None = None
+    description: str | None = None
+
+
+class Item(ItemBase):
+    id: int
     owner_id: int
 
     class Config:
@@ -19,7 +34,7 @@ class UserBase(BaseModel):
 
 class User(UserBase):
     id: int
-    # items: List[Item]
+    items: List[Item]
 
     class Config:
         orm_mode = True

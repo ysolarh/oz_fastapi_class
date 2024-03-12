@@ -7,4 +7,7 @@
 
 필요한 라이브러리
 - pip install sqlalchemy
-- 
+
+# SQL, JWT Auth -> Socket, AI API
+(1) JWT Auth
+(2) 
