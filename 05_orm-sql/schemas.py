@@ -32,9 +32,10 @@ class UserBase(BaseModel):
     email: str
 
 
+from typing import Optional
 class User(UserBase):
     id: int
-    items: List[Item]
+    items: Optional[List[Item]] = []
 
     class Config:
         orm_mode = True
@@ -46,5 +47,5 @@ class UserCreate(UserBase):
 
 class UserUpdate(UserBase):
     email: str | None = None
-    password: str | None = None  # python 3.10부터 추가된 기능
+    hashed_password: str | None = None  # python 3.10부터 추가된 기능
 
